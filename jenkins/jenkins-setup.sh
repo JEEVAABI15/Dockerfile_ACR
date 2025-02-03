@@ -1,11 +1,11 @@
 #!/bin/sh
 # Wait until Jenkins is fully up and running
-until curl -s -o /dev/null -w "%{http_code}" http://localhost:8083/login | grep 200; do
+until curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/login | grep 200; do
   echo "Waiting for Jenkins to start..."
   sleep 10
 done
 echo "Jenkins is up! Proceeding with setup..."
-url=http://localhost:8083
+url=http://localhost:8080
 # Default admin password file
 password_file=/var/jenkins_home/secrets/initialAdminPassword
 if [ ! -f "$password_file" ]; then
