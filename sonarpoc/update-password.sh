@@ -2,7 +2,7 @@
 # Variables
 SONARQUBE_URL="http://localhost:9000"
 OLD_PASSWORD="admin"
-NEW_PASSWORD="Guha@6542060"
+NEW_PASSWORD="Jeeva@151202"
 MAX_RETRIES=30
 RETRY_COUNT=0
 echo "Waiting for SonarQube to be ready..."
