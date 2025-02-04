@@ -12,20 +12,11 @@ COPY update-password.sh /opt/sonarqube/update-password.sh
 COPY start-sonarqube.sh /opt/sonarqube/start-sonarqube.sh
 # Ensure the script is executable
 RUN chmod +x /opt/sonarqube/update-password.sh /opt/sonarqube/start-sonarqube.sh
+# Install curl and netcat (netcat-openbsd variant)
+RUN apt-get update && apt-get install -y curl netcat-openbsd
 # Switch back to the default SonarQube user
 USER sonarqube
 # Expose the default SonarQube port
 EXPOSE 9000
 # Set entrypoint to start SonarQube
 ENTRYPOINT ["/bin/bash","-c","/opt/sonarqube/docker/entrypoint.sh & /opt/sonarqube/start-sonarqube.sh && tail -f /dev/null"]
-# Default command
-CMD ["console"]
-
-
-
-
-
-
-
-
-
